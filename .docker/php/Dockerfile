@@ -9,6 +9,8 @@ RUN apt-get update && apt-get install -y \
     procps \
     openssl \
     git \
+    sudo \
+    curl \
     unzip \
     zlib1g-dev \
     libzip-dev \
@@ -20,6 +22,11 @@ RUN apt-get update && apt-get install -y \
     libxslt1-dev \
     acl \
     && echo 'alias sf="php bin/console"' >> ~/.bashrc
+
+RUN sudo apt-get install curl
+RUN curl -fsSL https://deb.nodesource.com/setup_17.x | bash -
+RUN sudo apt-get install -y nodejs
+
 
 RUN docker-php-ext-configure gd --with-jpeg --with-freetype 
 
