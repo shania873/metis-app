@@ -2,6 +2,7 @@ FROM php:8.1-fpm-buster
 ARG TIMEZONE
 
 COPY php.ini /usr/local/etc/php/conf.d/docker-php-config.ini
+COPY php_pdo_mysql.dll /usr/local/etc/php/conf.d/php_pdo_mysql.dll
 
 RUN apt-get update && apt-get install -y \
     gnupg \
